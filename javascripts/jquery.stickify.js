@@ -26,7 +26,7 @@
 			this.options.scrolling = true;
 			if(!this.element.prev().hasClass(spacerClass)){
 				this.createCopy();
-				this.element.addClass("shadow");
+				this.element.addClass("ui-scrollie-shadow");
 			}
 			this.element.width(this.element.prev().width());
 		},
@@ -38,7 +38,7 @@
 			this.options.scrolling = false;
 			if(this.element.prev().hasClass(spacerClass)){
 				this.removeCopy();
-				this.element.removeClass("shadow");
+				this.element.removeClass("ui-scrollie-shadow");
 			}
 		},
 		removeCopy: function(){
