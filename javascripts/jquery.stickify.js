@@ -31,7 +31,7 @@
 			this.element.width(this.element.prev().width());
 		},
 		createCopy: function(){
-			$("<div></div>").insertBefore(this.element).addClass(spacerClass);
+			$("<div></div>").insertBefore(this.element).addClass(spacerClass).css({height:this.element.outerHeight()});
 			this.element.css({position:"fixed", top:0, height: this.element.height()});
 		},
 		descrollify: function(){
