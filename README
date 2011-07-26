@@ -1,0 +1,17 @@
+Stickify jQuery UI plugin
+by Andrew Kim
+
+This plugin turns a div into a sticky div. When a user scrolls past this sticky div, it will float above scrolling content so it always stays in the page view.
+
+An example would be the toolbar in gmail.
+
+Usage: 
+
+$("#divid").stickify();
+
+Depends on:
+jquery 1.6.2
+jqueryui/1.8.14
+
+Demo:
+http://stickify.heroku.com
