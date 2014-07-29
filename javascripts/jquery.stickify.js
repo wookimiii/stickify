@@ -5,12 +5,14 @@
 		options: {
 			scrolling: false
 		},
+
 		_create: function(){
 			$(this.element).addClass(scrollieClass).bind("windowScroll", {wdgt:this}, this.onScroll);
 			$(window).scroll({wdgt:this}, function(e){
 				$(e.data.wdgt.element).trigger("windowScroll");
 			});
 		},
+
 		onScroll: function(e){
 			var wdgt = e.data.wdgt;
 			var elemOffset = wdgt.element.position().top;
@@ -20,8 +22,8 @@
 			}else{
 				wdgt.descrollify();
 			}
-			
 		},
+
 		scrollify: function(){
 			this.options.scrolling = true;
 			if(!this.element.prev().hasClass(spacerClass)){
@@ -30,10 +32,12 @@
 			}
 			this.element.width(this.element.prev().width());
 		},
+
 		createCopy: function(){
 			$("<div></div>").insertBefore(this.element).addClass(spacerClass).css({height:this.element.outerHeight()});
 			this.element.css({position:"fixed", top:0, height: this.element.height()});
 		},
+
 		descrollify: function(){
 			this.options.scrolling = false;
 			if(this.element.prev().hasClass(spacerClass)){
@@ -41,6 +45,7 @@
 				this.element.removeClass("ui-scrollie-shadow");
 			}
 		},
+
 		removeCopy: function(){
 			this.element.prev().remove();
 			this.element.css({position:"", top:0});
