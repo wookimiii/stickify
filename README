@@ -8,6 +8,7 @@ An example would be the toolbar in gmail.
 Usage: 
 
 $("#divid").stickify();
+$("#divid").stickify({offset: 200}); // if you want to offset the point of sticking
 
 Depends on:
 jquery 1.6.2
