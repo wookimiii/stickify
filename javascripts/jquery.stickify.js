@@ -1,9 +1,10 @@
 (function( $ ){
 	var spacerClass = "ui-scrollie-spacer";
 	var scrollieClass = "ui-scrollie"
-  $.widget( "ui.stickify", {
+    $.widget( "ui.stickify", {
 		options: {
-			scrolling: false
+			scrolling: false,
+            offset: 0 // in pixels
 		},
 
 		_create: function(){
@@ -17,7 +18,7 @@
 			var wdgt = e.data.wdgt;
 			var elemOffset = wdgt.element.position().top;
 			if(wdgt.options.scrolling){ elemOffset = wdgt.element.prev().position().top; }
-			if(window.pageYOffset >= elemOffset ){
+			if(window.pageYOffset >= (elemOffset - wdgt.options.offset) ){
 				wdgt.scrollify();
 			}else{
 				wdgt.descrollify();
@@ -35,7 +36,7 @@
 
 		createCopy: function(){
 			$("<div></div>").insertBefore(this.element).addClass(spacerClass).css({height:this.element.outerHeight()});
-			this.element.css({position:"fixed", top:0, height: this.element.height()});
+			this.element.css({position:"fixed", top: this.options.offset, height: this.element.height()});
 		},
 
 		descrollify: function(){
@@ -48,7 +49,7 @@
 
 		removeCopy: function(){
 			this.element.prev().remove();
-			this.element.css({position:"", top:0});
+			this.element.css({position:"", top: this.options.offset});
 		}
 
   });
